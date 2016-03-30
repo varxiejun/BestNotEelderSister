@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "XJViewController.h"
+#import "LoginViewController.h"
+#import "XJNavigationController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,8 +22,10 @@
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    XJViewController *xjVC = [[XJViewController alloc] init];
-    self.window.rootViewController = xjVC;
+    self.window.rootViewController = [[XJNavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
+    
+//    XJViewController *xjVC = [[XJViewController alloc] init];
+//    self.window.rootViewController = xjVC;
     
     [self.window makeKeyAndVisible];
     return YES;

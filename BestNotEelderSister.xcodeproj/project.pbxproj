@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5053396B1CABA9F1004990EF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505339691CABA9F1004990EF /* LoginViewController.m */; };
+		5053396C1CABA9F1004990EF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5053396A1CABA9F1004990EF /* LoginViewController.xib */; };
 		50CCE3FC1CA907AE005A44A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CCE3FB1CA907AE005A44A1 /* main.m */; };
 		50CCE3FF1CA907AE005A44A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CCE3FE1CA907AE005A44A1 /* AppDelegate.m */; };
 		50CCE4021CA907AE005A44A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CCE4011CA907AE005A44A1 /* ViewController.m */; };
@@ -27,6 +29,7 @@
 		50CCE4661CA90DAA005A44A1 /* tarbar_infomation_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50CCE4621CA90DAA005A44A1 /* tarbar_infomation_normal@3x.png */; };
 		50CCE4671CA90DAA005A44A1 /* tarbar_infomation_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50CCE4631CA90DAA005A44A1 /* tarbar_infomation_selected@2x.png */; };
 		50CCE4681CA90DAA005A44A1 /* tarbar_infomation_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50CCE4641CA90DAA005A44A1 /* tarbar_infomation_selected@3x.png */; };
+		D962AE993B92EA53A2830D50 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80BCB85BCDE77CD7F873E115 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		505339681CABA9F1004990EF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		505339691CABA9F1004990EF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		5053396A1CABA9F1004990EF /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		50CCE3F71CA907AE005A44A1 /* BestNotEelderSister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestNotEelderSister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CCE3FB1CA907AE005A44A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50CCE3FD1CA907AE005A44A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,6 +90,9 @@
 		50CCE4621CA90DAA005A44A1 /* tarbar_infomation_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tarbar_infomation_normal@3x.png"; sourceTree = "<group>"; };
 		50CCE4631CA90DAA005A44A1 /* tarbar_infomation_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tarbar_infomation_selected@2x.png"; sourceTree = "<group>"; };
 		50CCE4641CA90DAA005A44A1 /* tarbar_infomation_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tarbar_infomation_selected@3x.png"; sourceTree = "<group>"; };
+		80BCB85BCDE77CD7F873E115 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A76EC32E86D19F02F0DF67FF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FDBED41F6784891ED277C04D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D962AE993B92EA53A2830D50 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +121,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3404CB0A3FD1EE00E4AE86F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A76EC32E86D19F02F0DF67FF /* Pods.debug.xcconfig */,
+				FDBED41F6784891ED277C04D /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		50CCE3EE1CA907AE005A44A1 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +137,8 @@
 				50CCE4131CA907AE005A44A1 /* BestNotEelderSisterTests */,
 				50CCE41E1CA907AE005A44A1 /* BestNotEelderSisterUITests */,
 				50CCE3F81CA907AE005A44A1 /* Products */,
+				3404CB0A3FD1EE00E4AE86F2 /* Pods */,
+				AF683DB369E7DD06A26E8027 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -216,6 +237,9 @@
 			isa = PBXGroup;
 			children = (
 				50CCE4601CA90DAA005A44A1 /* Resouce */,
+				505339681CABA9F1004990EF /* LoginViewController.h */,
+				505339691CABA9F1004990EF /* LoginViewController.m */,
+				5053396A1CABA9F1004990EF /* LoginViewController.xib */,
 				50CCE4421CA909AE005A44A1 /* XJViewController.h */,
 				50CCE4431CA909AE005A44A1 /* XJViewController.m */,
 				50CCE4481CA90A42005A44A1 /* XJNavigationController.h */,
@@ -370,6 +394,14 @@
 			path = Resouce;
 			sourceTree = "<group>";
 		};
+		AF683DB369E7DD06A26E8027 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				80BCB85BCDE77CD7F873E115 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -377,9 +409,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50CCE4241CA907AF005A44A1 /* Build configuration list for PBXNativeTarget "BestNotEelderSister" */;
 			buildPhases = (
+				84AA1FED99444D1946703A97 /* Check Pods Manifest.lock */,
 				50CCE3F31CA907AE005A44A1 /* Sources */,
 				50CCE3F41CA907AE005A44A1 /* Frameworks */,
 				50CCE3F51CA907AE005A44A1 /* Resources */,
+				5A4F923C1505F284849353AF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -474,6 +508,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5053396C1CABA9F1004990EF /* LoginViewController.xib in Resources */,
 				50CCE40A1CA907AE005A44A1 /* LaunchScreen.storyboard in Resources */,
 				50CCE4071CA907AE005A44A1 /* Assets.xcassets in Resources */,
 				50CCE4681CA90DAA005A44A1 /* tarbar_infomation_selected@3x.png in Resources */,
@@ -500,6 +535,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5A4F923C1505F284849353AF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84AA1FED99444D1946703A97 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50CCE3F31CA907AE005A44A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -513,6 +581,7 @@
 				50CCE4591CA90B7E005A44A1 /* FonsViewController.m in Sources */,
 				50CCE45F1CA90BA2005A44A1 /* NewViewController.m in Sources */,
 				50CCE3FC1CA907AE005A44A1 /* main.m in Sources */,
+				5053396B1CABA9F1004990EF /* LoginViewController.m in Sources */,
 				50CCE45C1CA90B92005A44A1 /* MineViewController.m in Sources */,
 				50CCE4471CA90A10005A44A1 /* UIColor+Tools.m in Sources */,
 				50CCE4561CA90B70005A44A1 /* EssenceViewController.m in Sources */,
@@ -652,6 +721,7 @@
 		};
 		50CCE4251CA907AF005A44A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A76EC32E86D19F02F0DF67FF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BestNotEelderSister/Info.plist;
@@ -663,6 +733,7 @@
 		};
 		50CCE4261CA907AF005A44A1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDBED41F6784891ED277C04D /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BestNotEelderSister/Info.plist;
