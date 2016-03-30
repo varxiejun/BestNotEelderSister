@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5053396B1CABA9F1004990EF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505339691CABA9F1004990EF /* LoginViewController.m */; };
 		5053396C1CABA9F1004990EF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5053396A1CABA9F1004990EF /* LoginViewController.xib */; };
+		5053396F1CABD429004990EF /* EssenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5053396E1CABD429004990EF /* EssenceManager.m */; };
+		505339721CABD465004990EF /* XJNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 505339711CABD465004990EF /* XJNetWork.m */; };
 		50CCE3FC1CA907AE005A44A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CCE3FB1CA907AE005A44A1 /* main.m */; };
 		50CCE3FF1CA907AE005A44A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CCE3FE1CA907AE005A44A1 /* AppDelegate.m */; };
 		50CCE4021CA907AE005A44A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CCE4011CA907AE005A44A1 /* ViewController.m */; };
@@ -53,6 +55,10 @@
 		505339681CABA9F1004990EF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		505339691CABA9F1004990EF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5053396A1CABA9F1004990EF /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5053396D1CABD429004990EF /* EssenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssenceManager.h; sourceTree = "<group>"; };
+		5053396E1CABD429004990EF /* EssenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EssenceManager.m; sourceTree = "<group>"; };
+		505339701CABD465004990EF /* XJNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJNetWork.h; sourceTree = "<group>"; };
+		505339711CABD465004990EF /* XJNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJNetWork.m; sourceTree = "<group>"; };
 		50CCE3F71CA907AE005A44A1 /* BestNotEelderSister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestNotEelderSister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CCE3FB1CA907AE005A44A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		50CCE3FD1CA907AE005A44A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -160,11 +166,11 @@
 				50CCE4001CA907AE005A44A1 /* ViewController.h */,
 				50CCE4011CA907AE005A44A1 /* ViewController.m */,
 				50CCE4311CA90940005A44A1 /* Comon */,
-				50CCE42D1CA90940005A44A1 /* Add */,
 				50CCE4321CA90940005A44A1 /* Essence */,
+				50CCE43E1CA90940005A44A1 /* New */,
+				50CCE42D1CA90940005A44A1 /* Add */,
 				50CCE4361CA90940005A44A1 /* Fons */,
 				50CCE43A1CA90940005A44A1 /* Mine */,
-				50CCE43E1CA90940005A44A1 /* New */,
 				50CCE4031CA907AE005A44A1 /* Main.storyboard */,
 				50CCE4061CA907AE005A44A1 /* Assets.xcassets */,
 				50CCE4081CA907AE005A44A1 /* LaunchScreen.storyboard */,
@@ -244,6 +250,8 @@
 				50CCE4431CA909AE005A44A1 /* XJViewController.m */,
 				50CCE4481CA90A42005A44A1 /* XJNavigationController.h */,
 				50CCE4491CA90A42005A44A1 /* XJNavigationController.m */,
+				505339701CABD465004990EF /* XJNetWork.h */,
+				505339711CABD465004990EF /* XJNetWork.m */,
 				50CCE4451CA90A10005A44A1 /* UIColor+Tools.h */,
 				50CCE4461CA90A10005A44A1 /* UIColor+Tools.m */,
 				50CCE4501CA90B13005A44A1 /* Common.h */,
@@ -273,6 +281,8 @@
 		50CCE4341CA90940005A44A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5053396D1CABD429004990EF /* EssenceManager.h */,
+				5053396E1CABD429004990EF /* EssenceManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -579,12 +589,14 @@
 				50CCE4531CA90B62005A44A1 /* AddViewController.m in Sources */,
 				50CCE4441CA909AE005A44A1 /* XJViewController.m in Sources */,
 				50CCE4591CA90B7E005A44A1 /* FonsViewController.m in Sources */,
+				505339721CABD465004990EF /* XJNetWork.m in Sources */,
 				50CCE45F1CA90BA2005A44A1 /* NewViewController.m in Sources */,
 				50CCE3FC1CA907AE005A44A1 /* main.m in Sources */,
 				5053396B1CABA9F1004990EF /* LoginViewController.m in Sources */,
 				50CCE45C1CA90B92005A44A1 /* MineViewController.m in Sources */,
 				50CCE4471CA90A10005A44A1 /* UIColor+Tools.m in Sources */,
 				50CCE4561CA90B70005A44A1 /* EssenceViewController.m in Sources */,
+				5053396F1CABD429004990EF /* EssenceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

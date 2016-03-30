@@ -7,18 +7,68 @@
 //
 
 #import "EssenceViewController.h"
+#import "Common.h"
 
 @interface EssenceViewController ()
+<
+UITableViewDelegate,
+UITableViewDataSource
+>
+
+@property (nonatomic, strong) UITableView *mainTableView;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
 
+static NSString * const cellID = @"cellID";
+
 @implementation EssenceViewController
+{
+    BOOL      _lastpage; // 尾页
+    NSInteger _currpage; // 当前页
+}
+- (NSMutableArray *)dataSource
+{
+    if (_dataSource == nil) {
+        self.dataSource = [NSMutableArray array];
+    }return _dataSource;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
+#pragma mark - 初始化
+- (UITableView *)mainTableView
+{
+    if (!_mainTableView) {
+        CGFloat naviH = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+        CGFloat tarbarH = CGRectGetHeight(self.tabBarController.tabBar.frame);
+        self.mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - naviH - tarbarH) style:(UITableViewStylePlain)];
+        self.mainTableView.delegate = self;
+        self.mainTableView.dataSource = self;
+        [self.mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+        self.mainTableView.tableFooterView = [UIView new];
+        [self.view addSubview:_mainTableView];
+    }return _mainTableView;
+}
+
+#pragma mark - 获取数据
+- (void)readData
+{
+    
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataSource.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    return cell;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -11,4 +11,12 @@
 
 #import "UIColor+Tools.h"
 
+/**
+ *  屏幕宽高
+ *
+ *  @return CGFloat
+ */
+#define ScreenWidth [[UIScreen mainScreen]bounds].size.width
+#define ScreenHeight [[UIScreen mainScreen]bounds].size.height
+
 #endif /* Common_h */
