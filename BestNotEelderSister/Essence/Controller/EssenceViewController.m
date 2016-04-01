@@ -7,6 +7,11 @@
 //
 
 #import "EssenceViewController.h"
+#import "EssenceManager.h"
+#import "EssenceHeader.h"
+#import "XJNetWork.h"
+#import "DataModels.h"
+
 #import "Common.h"
 
 @interface EssenceViewController ()
@@ -36,6 +41,7 @@ static NSString * const cellID = @"cellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self readData];
 }
 
 #pragma mark - 初始化
@@ -56,7 +62,15 @@ static NSString * const cellID = @"cellID";
 #pragma mark - 获取数据
 - (void)readData
 {
-    
+    [EssenceManager EssenceListCompleteBlock:^(id result) {
+       BaseClass *base =[BaseClass modelObjectWithDictionary:result];
+        for (List *list in base.list) {
+            [self.dataSource addObject:list];
+        }
+        [self.mainTableView reloadData];
+    } FailureBlock:^(id error) {
+        
+    }];
 }
 
 #pragma mark - UITableViewDataSource

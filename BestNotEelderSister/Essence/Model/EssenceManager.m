@@ -10,4 +10,17 @@
 
 @implementation EssenceManager
 
++ (void)EssenceListCompleteBlock:(CompleteBlock)successBlock FailureBlock:(FailureBlock)failureBlock
+{
+    NSString *url = @"http://s.budejie.com/topic/list/jingxuan/1/baisishequ-iphone-4.0/0-20.json";
+    [[XJNetWork shareNewWorking] startGetRequest:url withParameters:nil callBack:^(NSDictionary *result) {
+        if ([result[@"list"] count] > 0) {
+            successBlock(result);
+        }else
+        {
+            failureBlock(result);
+        }
+    }];
+}
+
 @end

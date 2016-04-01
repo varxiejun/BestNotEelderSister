@@ -8,10 +8,10 @@
 
 #import "LoginViewController.h"
 #import "XJViewController.h"
+#import "Common.h"
 #import "AppDelegate.h"
 #import <ReactiveCocoa.h>
 
-#define XJLog(x) (NSLog(@"x:%@",x))
 #define kRegextestMobile    @"^1([3|5|7|8|])[0-9]{9}$"  //手机正则
 #define weakify(...) \
 rac_keywordify \
@@ -37,12 +37,11 @@ metamacro_foreach_cxt(rac_weakify_,, __weak, __VA_ARGS__)
           return @([phonePred evaluateWithObject:firstName] && lastName.length > 5);
       }] setKeyPath:@"enabled" onObject:self.loginBtn];
 }
-
 - (IBAction)login:(UIButton *)sender {
     XJViewController *xjVC = [[XJViewController alloc] init];
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     app.window.rootViewController = xjVC;
-    NSLog(@"aaaa");
+    XJLog(@"login");
 }
 
 - (void)didReceiveMemoryWarning {

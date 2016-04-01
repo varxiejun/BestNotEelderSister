@@ -9,7 +9,14 @@
 #ifndef Common_h
 #define Common_h
 
+#ifdef DEBUG                          // 开发阶段 -DEBUG阶段：使用Log
+#define XJLog(...) NSLog(__VA_ARGS__)
+#else                                 // 发布阶段——上线阶段：移除Log
+#define XJLog(...)
+#endif
+
 #import "UIColor+Tools.h"
+#import "NSObject+XJBaseObject.h"
 
 /**
  *  屏幕宽高

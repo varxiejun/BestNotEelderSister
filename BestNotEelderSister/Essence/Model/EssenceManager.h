@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "XJNetWork.h"
 @interface EssenceManager : NSObject
-
+/**
+ *  精华推荐list
+ *
+ *  @param successBlock 返回成功数据
+ *  @param failureBlock 返回失败结果
+ */
++ (void)EssenceListCompleteBlock:(CompleteBlock)successBlock FailureBlock:(FailureBlock)failureBlock;
 @end

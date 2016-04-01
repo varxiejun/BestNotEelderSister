@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Common.h"
 #import <AFNetworking.h>
-
 // 定义网络改变时执行方法的block
 typedef void(^NetViaWWANBlock)();
 typedef void(^NetViaWiFiBlock)();
@@ -16,12 +16,20 @@ typedef void(^NoNetBlock)();
 typedef void(^UnknownNet)();
 
 typedef void(^RequestCallBack)(NSDictionary *result);
-
+typedef void(^CompleteBlock)(id result);
+typedef void(^FailureBlock)(id error);
 @interface XJNetWork : NSObject
 {
     AFNetworkReachabilityManager *reachabilityManager; // 创建网络管理类
     AFHTTPRequestSerializer *operation;  // 创建下载管理
 }
+/**
+ *  定义网络改变时执行方法的block
+ */
+@property (nonatomic, copy) NetViaWWANBlock statusReachableViaWWAN;
+@property (nonatomic, copy) NetViaWiFiBlock statusReachableVieWiFi;
+@property (nonatomic, copy) NoNetBlock statusNotReachable;
+@property (nonatomic, copy) UnknownNet statusUnknown;
 /**
  *  初始化
  */
