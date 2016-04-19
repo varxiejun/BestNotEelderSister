@@ -1,0 +1,59 @@
+//
+//  MoviePlayerController.m
+//  Eyes
+//
+//  Created by 雨天记忆 on 15/8/19.
+//  Copyright (c) 2015年 Rebirth. All rights reserved.
+//
+
+#import "MoviePlayerController.h"
+#import "MoviePlayer.h"
+#import "AppDelegate.h"
+
+@interface MoviePlayerController ()<MoviePlayerDelegate>
+
+//防止模拟器视频播放不出来，直接设置为属性
+@property (strong, nonatomic) MoviePlayer *moviePlayer;
+
+@end
+
+@implementation MoviePlayerController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    NSURL *url = nil;
+
+        // else我们还使用网络的url
+        url = [NSURL URLWithString:self.url];
+    self.moviePlayer = [[MoviePlayer alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.height, self.view.bounds.size.width) URL:url];
+    self.moviePlayer.title = self.titleName;
+    self.moviePlayer.delegate = self;
+    [self.view addSubview:self.moviePlayer];
+
+}
+
+- (void)back{
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    //设置属性，让它只支持竖屏切换
+    appDelegate.isRotation = NO;
+    //一定要写在视图消失和加载之前.
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+@end

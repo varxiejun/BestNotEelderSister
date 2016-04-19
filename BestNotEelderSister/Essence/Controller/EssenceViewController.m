@@ -11,7 +11,10 @@
 #import "EssenceHeader.h"
 #import "XJNetWork.h"
 #import "DataModels.h"
-
+#import "EssenceVideoCell.h"
+#import "MoviePlayerController.h"
+#import "MovieHtmlViewController.h"
+#import "AppDelegate.h"
 #import "Common.h"
 
 @interface EssenceViewController ()
@@ -41,6 +44,7 @@ static NSString * const cellID = @"cellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self readData];
 }
 
@@ -50,10 +54,10 @@ static NSString * const cellID = @"cellID";
     if (!_mainTableView) {
         CGFloat naviH = CGRectGetMaxY(self.navigationController.navigationBar.frame);
         CGFloat tarbarH = CGRectGetHeight(self.tabBarController.tabBar.frame);
-        self.mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - naviH - tarbarH) style:(UITableViewStylePlain)];
+        self.mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, naviH, ScreenWidth, ScreenHeight - naviH - tarbarH) style:(UITableViewStylePlain)];
         self.mainTableView.delegate = self;
         self.mainTableView.dataSource = self;
-        [self.mainTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+        [self.mainTableView registerClass:[EssenceVideoCell class] forCellReuseIdentifier:cellID];
         self.mainTableView.tableFooterView = [UIView new];
         [self.view addSubview:_mainTableView];
     }return _mainTableView;
@@ -73,6 +77,11 @@ static NSString * const cellID = @"cellID";
     }];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -80,9 +89,29 @@ static NSString * const cellID = @"cellID";
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    EssenceVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    List *model = _dataSource[indexPath.row];
+    cell.model = model;
+    __weak typeof(self)weakSelf = self;
+    cell.play = ^(NSString *url,NSString *title){
+        [weakSelf ssssWithUrl:url title:title];
+    };
     return cell;
 }
+
+- (void)ssssWithUrl:(NSString *)url title:(NSString *)title
+{
+    MoviePlayerController *movie = [[MoviePlayerController alloc] init];
+    movie.url = url;
+    movie.titleName = title;
+//    MovieHtmlViewController *movie = [[MovieHtmlViewController alloc] init];
+//    movie.url = url;
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.isRotation = YES;
+    movie.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:movie animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

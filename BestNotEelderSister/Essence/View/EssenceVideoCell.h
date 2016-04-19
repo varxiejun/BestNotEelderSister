@@ -8,6 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EssenceVideoCell : UITableViewCell
+typedef void(^Play)(NSString *,NSString *);
 
+@class EssenceHeader,EssenceToolBar,EssenceLabelView,MoviePlayerController,List;
+@interface EssenceVideoCell : UITableViewCell
+/**
+ *  头视图
+ */
+@property (nonatomic, strong) EssenceHeader *headView;
+/**
+ *  底部toolBar
+ */
+@property (nonatomic, strong) EssenceToolBar *toolBar;
+/**
+ *  播放图片
+ */
+@property (nonatomic, strong) UIImageView *videoImg;
+/**
+ *  数据
+ */
+@property (nonatomic, strong) List *model;
+@property (nonatomic, copy) Play play;
 @end

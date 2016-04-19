@@ -131,7 +131,7 @@
         divider.frame = CGRectMake(dividerX, dividerY, dividerW, dividerH);
     }
 
-    self.bottomView.frame = CGRectMake(0, self.frame.size.height - 10, ScreenWidth, 10);
+//    self.bottomView.frame = CGRectMake(0, self.bounds.size.height - 10, ScreenWidth, 10);
 }
 
 - (void)doTap:(UIButton *)sender
