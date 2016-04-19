@@ -38,8 +38,7 @@
     
     NSURL *url = nil;
 
-        // else我们还使用网络的url
-        url = [NSURL URLWithString:self.url];
+    url = [NSURL URLWithString:self.url];
     self.moviePlayer = [[MoviePlayer alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.height, self.view.bounds.size.width) URL:url];
     self.moviePlayer.title = self.titleName;
     self.moviePlayer.delegate = self;
@@ -49,11 +48,9 @@
 
 - (void)back{
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    //设置属性，让它只支持竖屏切换
+
     appDelegate.isRotation = NO;
-    //一定要写在视图消失和加载之前.
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

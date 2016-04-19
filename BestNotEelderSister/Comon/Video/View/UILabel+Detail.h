@@ -1,11 +1,10 @@
 //
 //  UILabel+Detail.h
-//  Eyes
+//  BestNotEelderSister
 //
-//  Created by 雨天记忆 on 15/8/20.
-//  Copyright (c) 2015年 Rebirth. All rights reserved.
+//  Created by 看楼听雨 on 16/3/31.
+//  Copyright © 2016年 XJ. All rights reserved.
 //
-
 #import <UIKit/UIKit.h>
 
 @interface UILabel (Detail)

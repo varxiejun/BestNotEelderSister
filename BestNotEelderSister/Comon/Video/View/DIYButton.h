@@ -1,18 +1,25 @@
 //
 //  DIYButton.h
-//  Eyes
+//  BestNotEelderSister
 //
-//  Created by 雨天记忆 on 15/8/21.
-//  Copyright (c) 2015年 Rebirth. All rights reserved.
+//  Created by 看楼听雨 on 16/3/31.
+//  Copyright © 2016年 XJ. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface DIYButton : UIButton
-
-@property (strong, nonatomic, readonly) UIImageView *icon;//button的图片显示
-@property (strong, nonatomic, readonly) UIImageView *iconSelected;//button selected状态下的图片
-
-@property (strong, nonatomic, readonly) UILabel *textLabel;//文字显示
+/**
+ *  button的图片显示
+ */
+@property (nonatomic, strong, readonly) UIImageView *icon;
+/**
+ *  button selected状态下的图片
+ */
+@property (nonatomic, strong, readonly) UIImageView *iconSelected;
+/**
+ *  文字
+ */
+@property (nonatomic, strong, readonly) UILabel *textLabel;
 
 @end

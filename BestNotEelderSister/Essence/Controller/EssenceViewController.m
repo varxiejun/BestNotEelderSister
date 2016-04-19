@@ -109,7 +109,7 @@ static NSString * const cellID = @"cellID";
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     appDelegate.isRotation = YES;
     movie.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:movie animated:YES];
+    [self presentViewController:movie animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
