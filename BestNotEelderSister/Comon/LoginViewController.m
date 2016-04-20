@@ -23,25 +23,42 @@ metamacro_foreach_cxt(rac_weakify_,, __weak, __VA_ARGS__)
 
 @end
 
+static NSString *userName = @"username";
+static NSString *passWord = @"password";
 @implementation LoginViewController
-
+{
+    BOOL _isLogin;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
      NSPredicate *phonePred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",kRegextestMobile];
-    
-    // 通过RAC进行模拟登陆
-    [[RACSignal combineLatest:@[self.username.rac_textSignal, self.password.rac_textSignal]
-      reduce:^(NSString *firstName, NSString *lastName){
-          return @([phonePred evaluateWithObject:firstName] && lastName.length > 5);
-      }] setKeyPath:@"enabled" onObject:self.loginBtn];
+    NSUserDefaults *userdef =[NSUserDefaults standardUserDefaults];
+    NSString *user = [userdef objectForKey:userName];
+    if (user && user.length == 11) {
+        _isLogin = YES;
+        [self login:self.loginBtn];
+    }else{
+        // 通过RAC进行模拟登陆
+        [[RACSignal combineLatest:@[self.username.rac_textSignal, self.password.rac_textSignal]
+                           reduce:^(NSString *firstName, NSString *lastName){
+                               return @([phonePred evaluateWithObject:firstName] && lastName.length > 5);
+                           }] setKeyPath:@"enabled" onObject:self.loginBtn];
+    }
 }
 - (IBAction)login:(UIButton *)sender {
     XJViewController *xjVC = [[XJViewController alloc] init];
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
     app.window.rootViewController = xjVC;
     XJLog(@"login");
+    NSUserDefaults *userdef =[NSUserDefaults standardUserDefaults];
+    if (_isLogin) {
+        NSLog(@"====");
+    }else{
+        [userdef setObject:self.username.text forKey:@"username"];
+        [userdef setObject:self.password.text forKey:@"password"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

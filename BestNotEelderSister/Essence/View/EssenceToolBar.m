@@ -46,16 +46,17 @@
 {
     if (self = [super initWithFrame:frame]) {
         [self createUI];
+        self.backgroundColor = [UIColor whiteColor];
 
     }return self;
 }
 
 - (void)createUI
 {
-    self.upBtn = [self setupBtnWithIcon:@"" title:@"1024"];
-    self.downBtn = [self setupBtnWithIcon:@"" title:@"125"];
-    self.forwardBtn = [self setupBtnWithIcon:@"" title:@"128"];
-    self.commentBtn = [self setupBtnWithIcon:@"" title:@"28"];
+    self.upBtn = [self setupBtnWithIcon:@"zan" title:@"1024"];
+    self.downBtn = [self setupBtnWithIcon:@"nozan" title:@"125"];
+    self.forwardBtn = [self setupBtnWithIcon:@"share" title:@"128"];
+    self.commentBtn = [self setupBtnWithIcon:@"comment" title:@"28"];
     
     self.upBtn.tag = EssenceToolTypeUp;
     self.downBtn.tag = EssenceToolTypeDown;
@@ -79,6 +80,7 @@
 {
     UIImageView *divider = [[UIImageView alloc] init];
     divider.image = [UIImage imageNamed:@"timeline_card_bottom_line"];
+    divider.backgroundColor = [UIColor greenColor];
     divider.contentMode = UIViewContentModeCenter;
     [self addSubview:divider];
     
@@ -109,10 +111,10 @@
 {
     [super layoutSubviews];
     // 设置按钮的frame
-    CGFloat btnY = 10;
+    CGFloat btnY = 0;
     int btnCount = (int)self.btns.count;
-    CGFloat btnW = self.frame.size.width / btnCount;
-    CGFloat btnH = 50;
+    CGFloat btnW = (self.frame.size.width - 9) / btnCount ;
+    CGFloat btnH = 40;
     for (int i = 0; i<btnCount; i++) {
         UIButton *btn = self.btns[i];
         
@@ -131,7 +133,7 @@
         divider.frame = CGRectMake(dividerX, dividerY, dividerW, dividerH);
     }
 
-//    self.bottomView.frame = CGRectMake(0, self.bounds.size.height - 10, ScreenWidth, 10);
+    self.bottomView.frame = CGRectMake(0, self.bounds.size.height - 10, ScreenWidth, 10);
 }
 
 - (void)doTap:(UIButton *)sender

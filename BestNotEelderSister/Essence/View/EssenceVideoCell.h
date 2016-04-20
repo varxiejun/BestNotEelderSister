@@ -15,11 +15,11 @@ typedef void(^Play)(NSString *,NSString *);
 /**
  *  头视图
  */
-@property (nonatomic, strong) EssenceHeader *headView;
+@property (nonatomic, weak) EssenceHeader *headView;
 /**
  *  底部toolBar
  */
-@property (nonatomic, strong) EssenceToolBar *toolBar;
+@property (nonatomic, weak) EssenceToolBar *toolBar;
 /**
  *  播放图片
  */

@@ -18,16 +18,34 @@
     }return self;
 }
 
-- (void)setModel:(List *)model
+- (void)drawRect:(CGRect)rect
 {
-    NSArray *array = model.tags;
-
+    [super drawRect:rect];
+    NSArray *array = _model.tags;
+    CGFloat width = 0;
     for (int i = 0; i < array.count - 1; i++) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        if (width >= [UIScreen mainScreen].bounds.size.width) {
+            return;
+        }
         Tags *tag = [array objectAtIndex:i];
+        CGFloat titleW = [self widthWithString:tag.name];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(width + 5, 0, titleW, 20)];
+        label.font = [UIFont systemFontOfSize:14];
+        width = width + 5 + titleW;
         label.text = tag.name;
         [self addSubview:label];
     }
 }
 
+- (void)setModel:(List *)model
+{
+    _model = model;
+    
+}
+
+- (CGFloat)widthWithString:(NSString *)string
+{
+    CGSize size = [string boundingRectWithSize:CGSizeMake(0, 20) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15]}  context:nil].size;
+    return size.width;
+}
 @end

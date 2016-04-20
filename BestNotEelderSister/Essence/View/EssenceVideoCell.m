@@ -15,6 +15,7 @@
 #import "List.h"
 #import <Masonry.h>
 #import "MoviePlayerController.h"
+#import <UIImageView+WebCache.h>
 
 @interface EssenceVideoCell ()
 /**
@@ -34,20 +35,23 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setupAutolayout];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }return self;
 }
 
 - (void)setupAutolayout
 {
     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.mas_equalTo(0);
+        make.top.mas_equalTo(self.contentView.mas_top);
+        make.left.right.mas_equalTo(0);
         make.height.mas_equalTo(50);
     }];
     
     [self.videoImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.headView.mas_bottom);
-        make.left.right.mas_equalTo(0);
-        make.height.mas_equalTo(85);
+        make.top.mas_equalTo(self.headView.mas_bottom).offset(10);
+        make.left.mas_equalTo(10);
+        make.right.mas_equalTo(-10);
+        make.height.mas_equalTo(155);
     }];
     
     [self.playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,15 +61,15 @@
     }];
     
     [self.labelView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.videoImg.mas_bottom);
+        make.top.mas_equalTo(self.videoImg.mas_bottom).offset(10);
         make.right.left.mas_equalTo(0);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(20);
     }];
     
     [self.toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.labelView.mas_bottom).offset(0);
         make.right.left.mas_equalTo(0);
-        make.height.mas_equalTo(35);
+        make.height.mas_equalTo(45);
     }];
     
 }
@@ -75,9 +79,9 @@
     _model = model;
     self.headView.model = model;
     self.labelView.model = model;
-  
-    
-    
+    Video *video = model.video;
+    NSString *url = [video.thumbnail firstObject];
+    [self.videoImg sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage new] options:(SDWebImageRetryFailed)];
 }
 
 - (EssenceHeader *)headView
@@ -104,6 +108,8 @@
         UIImageView *videoImg = [[UIImageView alloc] init];
         [self.contentView addSubview:videoImg];
         videoImg.userInteractionEnabled = YES;
+        videoImg.contentMode = UIViewContentModeScaleAspectFill;
+        videoImg.clipsToBounds = YES;
         _videoImg = videoImg;
     }return _videoImg;
 }
@@ -113,8 +119,7 @@
     if (!_playBtn) {
         UIButton *playBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
         [playBtn addTarget:self action:@selector(doTap:) forControlEvents:(UIControlEventTouchUpInside)];
-        [playBtn setTitleColor:[UIColor normalBlue] forState:(UIControlStateNormal)];
-        [playBtn setTitle:@"play" forState:(UIControlStateNormal)];
+        [playBtn setImage:[UIImage imageNamed:@"play"] forState:(UIControlStateNormal)];
         [self.videoImg addSubview:playBtn];
         _playBtn = playBtn;
     }return _playBtn;

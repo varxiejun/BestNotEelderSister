@@ -49,9 +49,9 @@
     [self.iconImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.mas_top).offset(12);
         make.left.mas_equalTo(self.mas_left).offset(17);
-        make.size.mas_equalTo(CGSizeMake(45, 45));
+        make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
-    
+
     [self.nickNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.iconImg.mas_right).offset(7);
         make.top.mas_equalTo(10);

@@ -57,6 +57,9 @@ static NSString * const cellID = @"cellID";
         self.mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, naviH, ScreenWidth, ScreenHeight - naviH - tarbarH) style:(UITableViewStylePlain)];
         self.mainTableView.delegate = self;
         self.mainTableView.dataSource = self;
+        self.mainTableView.rowHeight = 290;
+        self.mainTableView.estimatedRowHeight = 290;
+        self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.mainTableView registerClass:[EssenceVideoCell class] forCellReuseIdentifier:cellID];
         self.mainTableView.tableFooterView = [UIView new];
         [self.view addSubview:_mainTableView];
@@ -75,11 +78,6 @@ static NSString * const cellID = @"cellID";
     } FailureBlock:^(id error) {
         
     }];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 200;
 }
 
 #pragma mark - UITableViewDataSource
