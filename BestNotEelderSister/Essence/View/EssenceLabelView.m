@@ -18,12 +18,17 @@
     }return self;
 }
 
-- (void)drawRect:(CGRect)rect
+- (void)setModel:(List *)model
 {
-    [super drawRect:rect];
-    NSArray *array = _model.tags;
+    _model = model;
+    if (self.subviews) {
+        for (UIView * view in self.subviews) {
+            [view removeFromSuperview];
+        }
+    }
+    NSArray *array = model.tags;
     CGFloat width = 0;
-    for (int i = 0; i < array.count - 1; i++) {
+    for (int i = 0; i < array.count; i++) {
         if (width >= [UIScreen mainScreen].bounds.size.width) {
             return;
         }
@@ -35,12 +40,6 @@
         label.text = tag.name;
         [self addSubview:label];
     }
-}
-
-- (void)setModel:(List *)model
-{
-    _model = model;
-    
 }
 
 - (CGFloat)widthWithString:(NSString *)string

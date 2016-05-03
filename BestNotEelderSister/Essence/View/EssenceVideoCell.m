@@ -128,7 +128,7 @@
 - (EssenceLabelView *)labelView
 {
     if (!_labelView) {
-        EssenceLabelView *labelView = [EssenceLabelView new];
+        EssenceLabelView *labelView = [[EssenceLabelView alloc] init];
         labelView.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:labelView];
         _labelView = labelView;

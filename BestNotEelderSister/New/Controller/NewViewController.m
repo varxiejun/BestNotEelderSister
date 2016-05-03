@@ -7,16 +7,34 @@
 //
 
 #import "NewViewController.h"
-
+#import "ChatViewController.h"
+#import "Common.h"
+#import "AppDelegate.h"
 @interface NewViewController ()
 
 @end
 
+static NSInteger  numberID = 10;
 @implementation NewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    numberID = app.number_id;
+    UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    button.frame = CGRectMake(100, 100, 100, 50);
+    button.backgroundColor = [UIColor normalGray];
+    [button setTitle:[NSString stringWithFormat:@"与%ld聊天",(long)numberID] forState:(UIControlStateNormal)];
+    [button setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    [button addTarget:self action:@selector(doTap) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.view addSubview:button];
+}
+
+- (void)doTap
+{
+    ChatViewController *chat = [[ChatViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:[NSString stringWithFormat:@"%ld",(long)numberID]];
+    chat.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:chat animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

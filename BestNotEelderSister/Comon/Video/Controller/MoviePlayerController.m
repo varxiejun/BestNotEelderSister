@@ -1,9 +1,9 @@
 //
 //  MoviePlayerController.m
-//  Eyes
+//  BestNotEelderSister
 //
-//  Created by 雨天记忆 on 15/8/19.
-//  Copyright (c) 2015年 Rebirth. All rights reserved.
+//  Created by 看楼听雨 on 16/3/28.
+//  Copyright © 2016年 XJ. All rights reserved.
 //
 
 #import "MoviePlayerController.h"

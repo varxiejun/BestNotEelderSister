@@ -50,7 +50,9 @@ static NSString *passWord = @"password";
 - (IBAction)login:(UIButton *)sender {
     XJViewController *xjVC = [[XJViewController alloc] init];
     AppDelegate *app = [[UIApplication sharedApplication] delegate];
-    app.window.rootViewController = xjVC;
+    [UIView animateWithDuration:0.5f animations:^{
+        app.window.rootViewController = xjVC; 
+    }];
     XJLog(@"login");
     NSUserDefaults *userdef =[NSUserDefaults standardUserDefaults];
     if (_isLogin) {
