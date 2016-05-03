@@ -15,6 +15,7 @@
 #import "MoviePlayerController.h"
 #import "MovieHtmlViewController.h"
 #import "AppDelegate.h"
+#import "LoginViewController.h"
 #import "Common.h"
 
 @interface EssenceViewController ()
@@ -45,7 +46,25 @@ static NSString * const cellID = @"cellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
     [self readData];
+    
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"tarbar_infomation_selected"] imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)] style:(UIBarButtonItemStylePlain) target:self action:@selector(doTap)];
+    self.navigationItem.rightBarButtonItem = right;
+    NSLog(@"%@",self.navigationItem.rightBarButtonItem);
+    
+}
+
+- (void)doTap
+{
+    NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
+    [userdefaults removeObjectForKey:@"username"];
+    [userdefaults removeObjectForKey:@"password"];
+    LoginViewController *login = [[LoginViewController alloc] init];
+    AppDelegate *app = [[UIApplication sharedApplication] delegate];
+    [UIView animateWithDuration:0.5 animations:^{
+        app.window.rootViewController = login;
+    }];
 }
 
 #pragma mark - 初始化

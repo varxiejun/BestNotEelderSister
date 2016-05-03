@@ -12,6 +12,9 @@
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, assign) BOOL isRotation;
-
+/**
+ *  用户ID
+ */
+@property (nonatomic, assign) NSInteger number_id;
 @end
 

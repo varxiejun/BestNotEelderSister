@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @class List;
+
+
 @interface EssenceHeader : UIView
 
 @property (nonatomic, strong) List *model;
