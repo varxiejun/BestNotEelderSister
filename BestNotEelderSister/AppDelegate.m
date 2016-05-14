@@ -38,7 +38,7 @@
     }else{
         _number_id = 10;
     }
-    
+    //
     [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
         NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
     } error:^(RCConnectErrorCode status) {

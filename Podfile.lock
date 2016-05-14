@@ -19,17 +19,6 @@ PODS:
   - FMDB/standard (2.6)
   - Masonry (0.6.4)
   - MJRefresh (3.1.0)
-  - Pingpp (2.2.2):
-    - Pingpp/Alipay (= 2.2.2)
-    - Pingpp/Core (= 2.2.2)
-    - Pingpp/UnionPay (= 2.2.2)
-  - Pingpp/Alipay (2.2.2):
-    - Pingpp/Core
-  - Pingpp/Core (2.2.2):
-    - Pingpp/Network
-  - Pingpp/Network (2.2.2)
-  - Pingpp/UnionPay (2.2.2):
-    - Pingpp/Core
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -48,7 +37,6 @@ DEPENDENCIES:
   - FMDB (~> 2.6)
   - Masonry (~> 0.6.4)
   - MJRefresh (~> 3.1.0)
-  - Pingpp (~> 2.2.2)
   - ReactiveCocoa (~> 2.5)
   - RongCloudIMKit (~> 2.5.0)
   - SDWebImage (~> 3.7.5)
@@ -59,7 +47,6 @@ SPEC CHECKSUMS:
   FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
-  Pingpp: d1002b416ac23c4cb6ed50cac79af3edcbaa8ba7
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   RongCloudIMKit: 3d8473f022c7588db80ef81caf0208e5c2fa4789
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
